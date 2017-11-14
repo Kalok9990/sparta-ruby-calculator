@@ -22,6 +22,32 @@ def sqrt(num1)
   Math.sqrt(num1)
 end
 
+def imperial
+  print "Please enter your weight (pounds): "
+  weight = gets.chomp
+  weight = weight.to_f
+
+  print "Please enter your height (inch): "
+  height = gets.chomp
+  height = height.to_f
+
+  total = (weight * 703)/(height ** 2)
+  print "Your BMI is #{total}"
+end
+
+def metric
+  print "Please enter your weight (kg): "
+  weight = gets.chomp
+  weight = weight.to_f
+
+  print "Please enter your height (m): "
+  height = gets.chomp
+  height = height.to_f
+
+  total = weight/(height ** 2)
+  print "Your BMI is #{total}"
+end
+
 def basic(num1, num2)
   print "What would you like to do? +,-,* or /:  "
   operator = gets.chomp
@@ -60,9 +86,20 @@ def advanced
     print "Please enter your number: "
     num1 = gets.chomp
     num1 = num1.to_f
-    
+
     total = sqrt(num1)
     print "The square root of #{num1} is #{total}"
+  end
+end
+
+def bmi
+  print "Would you like to use the imperical or metric system? (i)mperical, (m)etric: "
+  systems = gets.chomp
+
+  if systems == "i"
+    imperial
+  elsif systems == "m"
+    metric
   end
 end
 
@@ -80,4 +117,6 @@ if user_input == "b"
   basic(first_num, sec_num)
 elsif user_input == "a"
   advanced
+elsif user_input == "i"
+  bmi
 end
