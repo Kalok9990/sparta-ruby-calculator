@@ -28,7 +28,7 @@ def imperial
   print "Please enter your height (inch): "
   height = gets.chomp.to_f
   total = (weight * 703)/(height ** 2)
-  print "Your BMI is #{total}"
+  print "Your BMI is #{total}. "
 end
 
 def metric
@@ -37,7 +37,7 @@ def metric
   print "Please enter your height (m): "
   height = gets.chomp.to_f
   total = weight/(height ** 2)
-  print "Your BMI is #{total}"
+  print "Your BMI is #{total}. "
 end
 
 # basic calculator
@@ -53,7 +53,7 @@ def basic(num1, num2)
   elsif operator == "/"
     total = division(num1, num2)
   end
-  print "#{num1} #{operator} #{num2} equals #{total}"
+  print "#{num1} #{operator} #{num2} equals #{total}. "
 end
 
 # advanced calculator
@@ -66,12 +66,12 @@ def advanced
     print "Please enter your second number: "
     num2 = gets.chomp.to_f
     total = power(num1, num2)
-    print "#{num1} to the power of #{num2} is #{total}"
+    print "#{num1} to the power of #{num2} is #{total}. "
   elsif choice == "b"
     print "Please enter your number: "
     num1 = gets.chomp.to_f
     total = sqrt(num1)
-    print "The square root of #{num1} is #{total}"
+    print "The square root of #{num1} is #{total}. "
   end
 end
 
@@ -104,12 +104,16 @@ def trip
   end
   time = distance / speed
   cost = incost * (distance/mpg)
-  print "Your trip will take #{time} hours and will cost £#{cost}"
+  print "Your trip will take #{time} hours and will cost £#{cost}. "
 end
 
 # choose type of calculator
-print "Which calculator would you like to use? (b)asic, (a)dvanced, bm(i), (t)rip: "
-user_input = gets.chomp
+def choose_calc
+  print "Which calculator would you like to use? (b)asic, (a)dvanced, bm(i), (t)rip: "
+  user_input = gets.chomp
+end
+
+user_input = choose_calc
 if user_input == "b"
   print "Please enter your first number: "
   first_num = gets.chomp.to_f
@@ -123,3 +127,4 @@ elsif user_input == "i"
 elsif user_input == "t"
   trip
 end
+user_input = choose_calc
