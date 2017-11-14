@@ -40,32 +40,44 @@ def basic(num1, num2)
 
 end
 
-def advanced(num1, num2)
+def advanced
   print "What would you like to do? a) power b) square root "
   choice = gets.chomp
 
   if choice == "a"
+    print "Please enter your first number: "
+    num1 = gets.chomp
+    num1 = num1.to_f
+
+    print "Please enter your second number: "
+    num2 = gets.chomp
+    num2 = num2.to_f
+
     total = power(num1, num2)
     print "#{num1} to the power of #{num2} is #{total}"
+
   elsif choice == "b"
+    print "Please enter your number: "
+    num1 = gets.chomp
+    num1 = num1.to_f
+    
     total = sqrt(num1)
     print "The square root of #{num1} is #{total}"
   end
 end
 
-print "Which calculator would you like to use? (b)asic, (a)dvanced: "
+print "Which calculator would you like to use? (b)asic, (a)dvanced, bm(i): "
 user_input = gets.chomp
 
-print "Please enter your first number: "
-first_num = gets.chomp
-first_num = first_num.to_f
-
-print "Please enter your second number: "
-sec_num = gets.chomp
-sec_num = sec_num.to_f
-
 if user_input == "b"
+  print "Please enter your first number: "
+  first_num = gets.chomp
+  first_num = first_num.to_f
+
+  print "Please enter your second number: "
+  sec_num = gets.chomp
+  sec_num = sec_num.to_f
   basic(first_num, sec_num)
 elsif user_input == "a"
-  advanced(first_num, sec_num)
+  advanced
 end
